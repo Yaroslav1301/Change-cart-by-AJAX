@@ -1,0 +1,45 @@
+<?php
+/**
+ * @var Kozar\UpdateCard\Block\AdditionalProInfo $block;
+ */
+$product = $block->getItem()->getProduct();
+?>
+<div data-mage-init='{"changeSize": {}}' id="<?=$product->getSku().'size'?>">
+    <?php
+    if ($product->getTypeId() == \Magento\ConfigurableProduct\Model\Product\Type\Configurable::TYPE_CODE){
+        $attributesArray = $block->getAttributes($product->getId());
+        $sizeId = 0;
+        foreach ($attributesArray['Size'] as $size)
+        {
+            $selected = "";
+            if ($block->getSize($product->getSku()) == $size) $selected = "selected";
+            ?> <div id="<?=$sizeId++?>" class="swatch-option text <?=$selected?>"><?=$size?></div>
+            <?php
+        }
+    }
+    ?>
+</div>
+<div data-mage-init='{"changeColor": {}}' id="<?=$product->getSku()?>">
+    <input type="text" value="<?=$product->getSku()?>" style="display:none;">
+    <?php
+    $product = $block->getItem()->getProduct();
+    if ($product->getTypeId() == \Magento\ConfigurableProduct\Model\Product\Type\Configurable::TYPE_CODE){
+        $attributesArray = $block->getAttributes($product->getId());
+        $colorId = 0;
+        foreach ($attributesArray['Color'] as $color)
+        {
+            $selected = "";
+            if ($block->getColor($product->getSku()) == $color) $selected = "selected";
+            ?>
+            <div id="<?=$colorId++?>"  class="swatch-option color <?=$selected?>" style="background: <?=$color?> no-repeat center; background-size: initial;"></div>
+            <?php
+        }
+    }
+    ?>
+</div>
+
+
+
+
+
+
