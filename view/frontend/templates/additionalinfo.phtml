@@ -4,7 +4,7 @@
  */
 $product = $block->getItem()->getProduct();
 ?>
-<div data-mage-init='{"changeSize": {}}' id="<?=$product->getSku().'size'?>">
+<div id="<?=$product->getSku().'size'?>">
     <?php
     if ($product->getTypeId() == \Magento\ConfigurableProduct\Model\Product\Type\Configurable::TYPE_CODE){
         $attributesArray = $block->getAttributes($product->getId());
@@ -19,7 +19,7 @@ $product = $block->getItem()->getProduct();
     }
     ?>
 </div>
-<div data-mage-init='{"changeColor": {}}' id="<?=$product->getSku()?>">
+<div  id="<?=$product->getSku()?>">
     <input type="text" value="<?=$product->getSku()?>" style="display:none;">
     <?php
     $product = $block->getItem()->getProduct();
@@ -31,7 +31,7 @@ $product = $block->getItem()->getProduct();
             $selected = "";
             if ($block->getColor($product->getSku()) == $color) $selected = "selected";
             ?>
-            <div id="<?=$colorId++?>"  class="swatch-option color <?=$selected?>" style="background: <?=$color?> no-repeat center; background-size: initial;"></div>
+            <div id="<?=$colorId++?>"  class="swatch-option color <?=$selected?>" data-color="<?=$color?>" style="background: <?=$color?> no-repeat center; background-size: initial;"></div>
             <?php
         }
     }

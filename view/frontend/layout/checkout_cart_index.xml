@@ -4,7 +4,7 @@
             <block class="Magento\Framework\View\Element\Template" name="cart.auto.update.qty"  template="Kozar_UpdateCard::js.phtml" after="-"/>
         </referenceContainer>
         <referenceContainer name="additional.product.info">
-            <block class="Kozar\UpdateCard\Block\AdditionalProInfo" name="cart_item_addional_info" template="Kozar_UpdateCard::checkout/cart/item/additionalinfo.phtml" cacheable="false"/>
+            <block class="Kozar\UpdateCard\Block\AdditionalProInfo" name="cart_item_addional_info" template="Kozar_UpdateCard::additionalinfo.phtml"/>
         </referenceContainer>
     </body>
 </page>
